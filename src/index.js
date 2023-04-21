@@ -15,6 +15,13 @@ const countryInfo = document.querySelector('.country-info');
 const searchCountry = e => {
   const searchTerm = searchBox.value.trim();
 
+  if (searchTerm === '') {
+    countryInfo.innerHTML = '';
+    countryList.innerHTML = '';
+    return;
+  }
+  
+
   fetchCountries(searchTerm)
     .then(data => {
       countriesData(data);
@@ -52,7 +59,7 @@ function countriesData(data) {
                 `
       )
       .join(''));
-  } else {
+  }  else {
     clearData(countryList);
     clearData(countryInfo);
 
