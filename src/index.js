@@ -29,6 +29,8 @@ const searchCountry = e => {
     .catch(error => {
       if (searchTerm !== '') {
         Notiflix.Notify.failure('Oops, there is no country with that name');
+        countryInfo.innerHTML = '';
+        countryList.innerHTML = '';
       }
     });
 
